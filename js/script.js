@@ -1,4 +1,179 @@
+const translations = {
+    id: {
+        nav_home: "Beranda",
+        nav_map: "Persebaran",
+        nav_loris: "Kukang",
+        nav_program: "Program",
+        nav_gallery: "Galeri",
+        nav_lapor: "Lapor!",
+        nav_lapor_mobile: "Lapor Kukang Sekarang",
+        
+        hero_title: 'Lindungi Kukang Sumatera<br class="hidden md:block" /> di Habitat Riau',
+        hero_desc: "Kukang ada karena hutan, hutan lestari karena kita.",
+        btn_report: "Laporkan Temuan",
+        btn_learn: "Pelajari Lebih Lanjut",
+        
+        map_title: '7 Spesies Kukang <span class="text-gradient">Asli Indonesia</span>',
+        map_desc: 'Peta persebaran ilmiah genus <span class="italic font-medium">Nycticebus</span> di berbagai wilayah Indonesia. Klik penanda untuk detail spesies dan status konservasinya.',
+        map_legend: 'Status IUCN Red List',
+        iucn_cr: 'Critically Endangered (Kritis)',
+        iucn_en: 'Endangered (Terancam)',
+        iucn_vu: 'Vulnerable (Rentan)',
+        
+        edu_badge: 'Kenali Mereka',
+        edu_title: 'Profil Spesies: <span class="text-gradient">Kukang Sunda</span>',
+        edu_content: '<p>Kukang Sunda, yang lazim dikenal oleh masyarakat lokal Sumatera dan Kepulauan Riau dengan sebutan <strong>Malu-malu</strong>, merupakan primata endemik nokturnal yang sangat unik. Primata bermata besar ini beradaptasi sempurna untuk aktivitas di malam hari, bergerak secara lambat dan hening menyusuri dahan kanopi hutan tropis untuk mencari makan sembari menghindari deteksi para predator alaminya.</p><p>Di balik perawakannya yang menggemaskan, kukang menyimpan keunikan biologis yang langka: ia adalah <strong>satu-satunya primata berbisa di dunia</strong>. Racun pertahanan ini diproduksi melalui kelenjar khusus yang berada di bagian sikunya, yang kemudian dicampur dengan air liur. Gigitan kukang dapat memicu syok anafilaksis yang berbahaya bagi manusia. Di alam liar, satwa pemakan nektar, getah, dan serangga ini memegang peranan krusial sebagai penyerbuk bunga alami di malam hari serta agen penyebar benih yang merawat ekosistem hutan Riau.</p><p>Sayangnya, keberadaan primata eksotis ini kian kritis. Kukang Sunda kini berstatus <em>Endangered</em> (Terancam Punah) dalam daftar merah IUCN dan masuk perlindungan ketat CITES Apendiks I. Secara yurisdiksi nasional, satwa ini dilindungi penuh oleh <strong>Undang-Undang No. 5 Tahun 1990</strong>. Ancaman terbesar yang mendesak populasi mereka saat ini adalah maraknya perburuan liar untuk dijadikan hewan peliharaan, eksploitasi untuk mitos pengobatan tradisional, serta deforestasi yang terus merampas habitat alami mereka.</p>',
+        
+        prog_badge: 'Program Kami',
+        prog_title: 'Melindungi Kukang Melalui <span class="text-gradient">Edukasi Masyarakat</span>',
+        prog_desc: 'Inisiatif utama Akasia Riau dan DierenPark Amersfoort Wildlife Fund dalam melindungi populasi satwa liar.',
+        prog_c1_title: 'Apa yang Dikerjakan',
+        prog_c1_list: '<li><strong>Edukasi Masyarakat:</strong> Pendekatan komprehensif ke 3 desa.</li><li><strong>Edukasi Sekolah:</strong> Menggunakan metode interaktif & storytelling.</li><li><strong>Pemantauan:</strong> Pelatihan relawan berbasis masyarakat sekitar.</li><li><strong>Materi Edukasi:</strong> Pembuatan poster, leaflet & panduan.</li>',
+        prog_c2_title: 'Target & Alur Pelaksanaan',
+        prog_c2_list: '<p><strong>Target Sasaran:</strong> Warga desa, pelajar, relawan, pusat komunitas, & pemimpin lokal.</p><p><strong>Alur Program:</strong></p><ol class="list-decimal list-outside ml-4 marker:text-brand-500 space-y-1"><li>Tahap Persiapan & Koordinasi</li><li>Pelaksanaan Edukasi</li><li>Pelatihan Relawan</li><li>Pemantauan & Evaluasi</li></ol>',
+        prog_c3_title: 'Dampak & Tujuan',
+        prog_c3_list: '<li>Mengurangi tingkat perdagangan dan perburuan ilegal secara signifikan.</li><li>Melindungi dan merawat habitat kukang yang tersisa.</li><li>Membangun jaringan konservasi lokal yang mandiri dan berkelanjutan.</li>',
+        btn_poster: 'Lihat / Unduh Poster Infografis Lengkap',
+        
+        doc_badge: 'Edukasi Sekolah',
+        doc_date: '<i class="fa-regular fa-calendar mr-1.5"></i> 7 Sep 2026',
+        doc_title: 'Mengenal Satwa Liar Sejak Dini: Edukasi Kukang bersama Siswa SDN 017 Sungai Guntung Hilir',
+        doc_p1: 'Mengenal satwa liar sejak dini menjadi salah satu langkah untuk menumbuhkan kepedulian terhadap keberadaannya di alam.',
+        doc_p2: 'Pada 7 September 2026, edukasi mengenai kukang dilaksanakan bersama 10 siswa SDN 017 Sungai Guntung Hilir. Siswa diajak mengenal kukang, habitatnya, serta alasan penting mengapa kukang perlu dilindungi.',
+        doc_quote: '"Jangan menangkap, memelihara, atau memperjualbelikan kukang. Mari bersama menjaga kukang tetap hidup aman di habitat alaminya."',
+        
+        doc2_badge: 'Edukasi Masyarakat',
+        doc2_label: '<i class="fa-solid fa-users mr-1.5"></i> Pelestarian Komunitas',
+        doc2_title: 'Edukasi Kukang Bersama Masyarakat',
+        doc2_p1: 'Melalui kegiatan ini, masyarakat diajak mengenal kukang lebih dekat, mulai dari karakteristik, perilaku, hingga ancaman yang dapat membahayakan keberadaannya di alam.',
+        doc2_p2: 'Kegiatan edukasi menjadi salah satu langkah untuk meningkatkan kepedulian dan mendorong upaya penyelamatan kukang bersama.',
+        doc2_quote: '"Kenali kukangnya, peduli, dan ikut menjaganya tetap di alam."',
+        
+        gal_badge: 'Media Sosial',
+        gal_title: 'Galeri <span class="text-gradient">Instagram</span>',
+        gal_desc: 'Update aksi konservasi dan kegiatan lapangan dari akun Instagram @akasia.riau.',
+        btn_ig: 'Ikuti @akasia.riau di Instagram',
+        
+        lapor_title: 'Lapor <span class="text-gradient">Penampakan</span>',
+        lapor_desc: 'Bantu kami menyelamatkan kukang. Data pelapor dijamin kerahasiaannya.',
+        
+        footer_desc: 'Platform kolaborasi antara Akasia Riau dan DierenPark Amersfoort Wildlife Fund yang didedikasikan untuk perlindungan, edukasi, dan pelaporan satwa Kukang di Provinsi Riau.',
+        footer_nav: 'NAVIGASI',
+        footer_contact: 'KONTAK',
+        footer_address: 'Sekretariat: Bumi Indah, Blok D-11, Air Raja, Kec. Tanjung Pinang Timur, Kota Tanjung Pinang, Kepulauan Riau, Indonesia 29125',
+        footer_phone: '+62 822-8589-8726 (Rescue Hotline)'
+    },
+    en: {
+        nav_home: "Home",
+        nav_map: "Distribution Map",
+        nav_loris: "Slow Loris",
+        nav_program: "Program",
+        nav_gallery: "Gallery",
+        nav_lapor: "Report!",
+        nav_lapor_mobile: "Report a Slow Loris Now",
+        
+        hero_title: 'Protect Sumatran Slow Lorises<br class="hidden md:block" /> in Riau Habitat',
+        hero_desc: "Lorises exist because of the forest, the forest remains because of us.",
+        btn_report: "Report Sighting",
+        btn_learn: "Learn More",
+        
+        map_title: '7 Slow Loris Species <span class="text-gradient">Native to Indonesia</span>',
+        map_desc: 'Scientific distribution map of the genus <span class="italic font-medium">Nycticebus</span> across Indonesia. Click markers for species details and conservation status.',
+        map_legend: 'IUCN Red List Status',
+        iucn_cr: 'Critically Endangered',
+        iucn_en: 'Endangered',
+        iucn_vu: 'Vulnerable',
+        
+        edu_badge: 'Get to Know Them',
+        edu_title: 'Species Profile: <span class="text-gradient">Sunda Slow Loris</span>',
+        edu_content: '<p>The Sunda Slow Loris, commonly known by local communities in Sumatra and the Riau Islands as <strong>Malu-malu</strong> (the shy one), is a highly unique nocturnal endemic primate. This large-eyed primate is perfectly adapted for nighttime activity, moving slowly and silently along the branches of the tropical forest canopy to forage while avoiding detection by natural predators.</p><p>Behind its adorable appearance, the slow loris harbors a rare biological trait: it is the <strong>only venomous primate in the world</strong>. This defensive venom is produced by a special gland on its elbow, which is then mixed with saliva. A loris bite can trigger dangerous anaphylactic shock in humans. In the wild, this nectar, sap, and insect-eating animal plays a crucial role as a natural nocturnal pollinator and seed disperser, maintaining the Riau forest ecosystem.</p><p>Unfortunately, the existence of this exotic primate is increasingly critical. The Sunda Slow Loris is now classified as <em>Endangered</em> on the IUCN Red List and receives strict protection under CITES Appendix I. Under national jurisdiction, this animal is fully protected by <strong>Law No. 5 of 1990</strong>. The most pressing threats to their population today are rampant illegal poaching for the pet trade, exploitation for traditional medicine myths, and ongoing deforestation that continues to strip away their natural habitat.</p>',
+        
+        prog_badge: 'Our Program',
+        prog_title: 'Protecting Slow Lorises Through <span class="text-gradient">Community Education</span>',
+        prog_desc: 'The main initiative of Akasia Riau and DierenPark Amersfoort Wildlife Fund in protecting wildlife populations.',
+        prog_c1_title: 'What We Do',
+        prog_c1_list: '<li><strong>Community Education:</strong> Comprehensive approach to 3 villages.</li><li><strong>School Education:</strong> Interactive & storytelling methods.</li><li><strong>Monitoring:</strong> Training for community-based volunteers.</li><li><strong>Educational Materials:</strong> Production of posters, leaflets & guides.</li>',
+        prog_c2_title: 'Target & Implementation',
+        prog_c2_list: '<p><strong>Target Audience:</strong> Villagers, students, volunteers, community centers, & local leaders.</p><p><strong>Program Workflow:</strong></p><ol class="list-decimal list-outside ml-4 marker:text-brand-500 space-y-1"><li>Preparation & Coordination</li><li>Education Implementation</li><li>Volunteer Training</li><li>Monitoring & Evaluation</li></ol>',
+        prog_c3_title: 'Impact & Goals',
+        prog_c3_list: '<li>Significantly reduce illegal trade and poaching rates.</li><li>Protect and care for remaining slow loris habitats.</li><li>Build an independent and sustainable local conservation network.</li>',
+        btn_poster: 'View / Download Complete Infographic Poster',
+        
+        doc_badge: 'School Education',
+        doc_date: '<i class="fa-regular fa-calendar mr-1.5"></i> Sep 7, 2026',
+        doc_title: 'Getting to Know Wildlife Early On: Slow Loris Education with Students of SDN 017 Sungai Guntung Hilir',
+        doc_p1: 'Introducing wildlife at an early age is a key step in cultivating care for their existence in nature.',
+        doc_p2: 'On September 7, 2026, slow loris education was carried out with 10 students of SDN 017 Sungai Guntung Hilir. Students were introduced to the slow loris, its habitat, and the important reasons why it needs to be protected.',
+        doc_quote: '"Do not capture, keep, or trade slow lorises. Let\'s work together to keep slow lorises alive and safe in their natural habitat."',
+        
+        doc2_badge: 'Community Education',
+        doc2_label: '<i class="fa-solid fa-users mr-1.5"></i> Community Conservation',
+        doc2_title: 'Slow Loris Education with the Community',
+        doc2_p1: 'Through this activity, the community is invited to get to know the slow loris more closely, starting from its characteristics, behavior, to the threats that can endanger its existence in nature.',
+        doc2_p2: 'Educational activities are one of the steps to increase awareness and encourage joint efforts to save the slow loris.',
+        doc2_quote: '"Know the slow loris, care for it, and help keep it in nature."',
+
+        gal_badge: 'Social Media',
+        gal_title: 'Instagram <span class="text-gradient">Gallery</span>',
+        gal_desc: 'Conservation action and field activity updates from the @akasia.riau Instagram account.',
+        btn_ig: 'Follow @akasia.riau on Instagram',
+        
+        lapor_title: 'Report <span class="text-gradient">Sighting</span>',
+        lapor_desc: 'Help us save slow lorises. Reporter data is guaranteed confidential.',
+        
+        footer_desc: 'A collaborative platform between Akasia Riau and DierenPark Amersfoort Wildlife Fund dedicated to the protection, education, and reporting of Slow Lorises in Riau Province.',
+        footer_nav: 'NAVIGATION',
+        footer_contact: 'CONTACT',
+        footer_address: 'Secretariat: Bumi Indah, Blok D-11, Air Raja, Kec. Tanjung Pinang Timur, Kota Tanjung Pinang, Kepulauan Riau, Indonesia 29125',
+        footer_phone: '+62 822-8589-8726 (Rescue Hotline)'
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'id';
+
+function applyLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    const langText = document.getElementById('lang-text');
+    const langFlag = document.getElementById('lang-flag');
+    const mobileLangText = document.getElementById('mobile-lang-text');
+    const mobileLangFlag = document.getElementById('mobile-lang-flag');
+
+    if (lang === 'en') {
+        if(langText) langText.innerText = 'EN';
+        if(langFlag) langFlag.src = 'https://flagcdn.com/w20/gb.png';
+        if(mobileLangText) mobileLangText.innerText = 'EN';
+        if(mobileLangFlag) mobileLangFlag.src = 'https://flagcdn.com/w20/gb.png';
+    } else {
+        if(langText) langText.innerText = 'ID';
+        if(langFlag) langFlag.src = 'https://flagcdn.com/w20/id.png';
+        if(mobileLangText) mobileLangText.innerText = 'ID';
+        if(mobileLangFlag) mobileLangFlag.src = 'https://flagcdn.com/w20/id.png';
+    }
+    
+    localStorage.setItem('lang', lang);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // 00. Initialize Language
+    applyLanguage(currentLang);
+    
+    const langSwitcher = document.getElementById('lang-switcher');
+    const mobileLangBtn = document.getElementById('mobile-lang-btn');
+    
+    function toggleLanguage() {
+        currentLang = currentLang === 'id' ? 'en' : 'id';
+        applyLanguage(currentLang);
+    }
+    
+    if(langSwitcher) langSwitcher.addEventListener('click', toggleLanguage);
+    if(mobileLangBtn) mobileLangBtn.addEventListener('click', toggleLanguage);
+
     // 0. Scroll Reveal Animations
     const revealEls = document.querySelectorAll('.fade-up');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -67,11 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 name: "Kukang Sunda",
                 scientific: "Nycticebus coucang",
-                location: "Sumatera Selatan, Riau, Batam & Kepulauan Riau",
-                coords: [-0.5, 102.0],
+                location: "Tanjung Pinang, Kepulauan Riau",
+                coords: [0.8919, 104.4812],
                 status: "Endangered",
                 statusClass: "iucn-en",
-                desc: "Memiliki garis punggung cokelat gelap yang memanjang hingga ke kepala."
+                desc: "<b>Sekretariat Akasia Riau</b><br>Bumi Indah, Blok D-11, Air Raja, Kec. Tanjung Pinang Timur, Kota Tanjung Pinang, Kepulauan Riau, Indonesia 29125"
             },
             {
                 name: "Kukang Jawa",
